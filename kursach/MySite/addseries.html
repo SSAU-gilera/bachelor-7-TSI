@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style-other.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700|Old+Standard+TT&display=swap&subset=cyrillic" rel="stylesheet">
+    <title>Виртуальная справка - Музей авиации и космонавтики</title>
+  </head>
+
+  <body>
+    
+    <header class="page-header">
+    <ul>
+      <li><a href="index.html">Главная</a></li>
+      <li><a href="about.html">О музее</a></li>
+      <li><a href="halls.html">Экспозиции</a></li>
+      <li><a href="news.html">Новости</a></li>
+      <li><a href="workingtime.html">Посетителям</a></li>
+    </ul>
+    </header>
+<main>
+
+<div class="addseries">
+   <div class="container">
+    <h1 class="subheading">Заполните форму</h1>
+    <div class="container-addseries">
+
+  <form method="post" onsubmit="return ValidForm()">
+    <div class="row">
+      <div class="col-25">
+        <label for="name">Имя</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="name" name="Name" placeholder="Введите имя.." required>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="email">Электронная почта</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="email" name="Email" placeholder="Введите Email.." required>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="series">Текст сообщения</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="series" name="nameofseries" placeholder="Введите текст сообщения.." required>
+      </div>
+    </div>    
+    <p class id="message">ᅠ ᅠ</p>
+    <div class="row">
+      <input class="button" type="submit" value="Отправить форму">
+    </div>
+  </form>
+  </div>
+</div>
+</div>
+
+    </main>
+    <footer class="page-footer">
+      <div class="container">
+      <p>© 2021 Музей авиации и космонавтики имени С.П. Королева. Самарский университет</p>
+    </div>
+    </footer>
+  </body>
+
+      <script type="text/javascript">
+function ValidForm() {
+    var reM = /^[\w]{1}[\w-\.]*@[\w-]+\.[a-z]{2,4}$/i;
+    var reY = /((19[4-9][0-9])|(20[0-2][0-9]))/;
+    var reN = /^[а-яА-Я -]+$/;
+    var reS = /^(https?:\/\/)?([\w\.]+)\.([a-z]{2,6}\.?)(\/[\w\.]*)*\/?$/;
+    var valid  = true;
+    var validM = reM.test(document.getElementById('email').value);
+    var validY = reY.test(document.getElementById('year').value);
+    var validN = reN.test(document.getElementById('name').value);
+    var validS = reS.test(document.getElementById('source').value);
+    if (!validS) {
+      document.getElementById('message').innerHTML = 'Некорректная ссылка!!';
+      valid = false;
+      }
+    if (!validY) {
+      document.getElementById('message').innerHTML = 'Год выпуска введён неправильно!';
+      valid = false;
+      }
+    if (!validM) {
+      document.getElementById('message').innerHTML = 'Адрес электронной почты введён неправильно!';
+      valid = false;
+    }
+    if (!validN) {
+      document.getElementById('message').innerHTML = 'Имя введёно неправильно!';
+      valid = false;
+    }
+    return valid;
+}
+  </script>
+
+</html>
